@@ -49,3 +49,31 @@ function type() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
+let lastTime = 0;
+
+function type(time) {
+  if (time - lastTime > (isDeleting ? 100 : 150)) {
+    const currentTitle = titles[titleIndex];
+    typingElement.textContent = isDeleting
+      ? currentTitle.substring(0, charIndex--)
+      : currentTitle.substring(0, charIndex++);
+
+    if (charIndex < 0) {
+      isDeleting = false;
+      titleIndex = (titleIndex + 1) % titles.length;
+    } else if (charIndex === currentTitle.length) {
+      isDeleting = true;
+      setTimeout(() => requestAnimationFrame(type), 1000);
+      return;
+    }
+
+    lastTime = time;
+  }
+  requestAnimationFrame(type);
+}
+
+requestAnimationFrame(type);
+document.querySelector("#contact-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Thank you for contacting me! I'll get back to you soon.");
+});

@@ -18,7 +18,7 @@
   <body>
     <header class="header">
       <a href="#" class="logo">Anshu</a>
-      <i class="fa-solid fa-bars" id="menu-icon"></i>
+      <i class="fa-solid fa-bars" id="menu-icon" aria-label="Menu icon"></i>
       <nav class="navbar">
         <a href="#home" class="active">Home</a>
         <a href="#services">Services</a>
@@ -325,15 +325,13 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <h2 class="heading">Contact <span>Me!</span></h2>
-      <form action="#" method="POST">
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Your Email" />
-        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </section>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    
 
     <footer>
       <p>&copy; 2023 Anshu. All Rights Reserved.</p>
